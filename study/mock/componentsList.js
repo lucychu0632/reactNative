@@ -5,8 +5,7 @@
  * @format
  * @flow
  */
-
-export const componentsList=[
+ const commonList=[
   {
     title:'基础组件',
     data:[
@@ -70,6 +69,9 @@ export const componentsList=[
       },
     ]
   },
+]
+
+const iosList=[
   {
     title:'iOS 独有的组件',
     data:[
@@ -110,7 +112,10 @@ export const componentsList=[
         desc:'渲染一个UITabViewController底部选项卡布局。需要和TabBarIOS.Item搭配使用'
       },
     ]
-  },
+  }
+]
+
+ const androidList=[
   {
     title:'Android 独有的组件',
     data:[
@@ -159,7 +164,10 @@ export const componentsList=[
         desc:'打开时间选择器'
       },
     ]
-  },
+  }
+]
+
+const otherList=[
   {
     title:'其他',
     data:[
@@ -218,3 +226,9 @@ export const componentsList=[
     ]
   }
 ]
+import { Platform } from 'react-native';
+
+export const componentsList = Platform.select({
+  ios: [...commonList,...iosList,...otherList],
+  android:[...commonList,...androidList,...otherList]
+});

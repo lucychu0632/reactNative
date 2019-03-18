@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style type="text/css" rel="stylesheet">
+    body{
+      margin:0;
+      padding:0;
+    }
+    code {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+      background-color: transparent;
+      border: 0;
+      display: inline;
+      font-size: 85%;
+      line-height: inherit;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      white-space: pre;
+      word-break: normal;
+      word-wrap: normal;
+      color: #005068;
+    }
+
+    .hljs {
+      display: block;
+      font-size:12px;
+      background: rgba(5, 165, 209, .05);
+      color: #839496;
+      line-height: 20px;
+    }
+
+    .hljs-keyword {
+      color: #859900;
+    }
+
+    .hljs-title {
+      color: #b58900;
+    }
+  </style>
+</head>
+<body>
+<code class="hljs">
+<span><span class="hljs-keyword">class</span><span class="hljs-title"> ViewColoredBoxesWithText</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> {</span>
+  <span>render() {</span>
+    <span class="hljs-keyword">return (</span>
+      &lt;View
+        style={{
+          flexDirection: "row",
+          height: 100,
+          padding: 20
+        }}
+      &gt;
+        &lt;View style={{ backgroundColor: "blue", flex: 0.3 }} /&gt;
+        &lt;View style={{ backgroundColor: "red", flex: 0.5 }} /&gt;
+        &lt;Text&gt;Hello World!&lt;/Text&gt;
+        &lt;/View&gt;
+      );
+    }
+  }
+</code>
+</body>
+</html>

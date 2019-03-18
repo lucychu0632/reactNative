@@ -1,30 +1,39 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform } from 'react-native';
 
 export default class CodeViewCard extends Component {
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    navigator: PropTypes.object.isRequired,
-  }
 
   constructor(props, context) {
     super(props, context);
     // this._onForward = this._onForward.bind(this);
     // this._onBack = this._onBack.bind(this);
   }
-
-  render() {
-    const {componentName,customComponent}=this.props;
+  setComponent=(customComponent)=>{
     return (
-      <View styles={styles.container}>
-        <View>
-          {
-            customComponent
-          }
-        </View>
+      <View style={styles.content}>
+        {customComponent }
+      </View>
+    )
+  }
+  render() {
+    const { componentName,customComponent } = this.props;
+    return (
+      <View style={styles.container}>
+        {this.setComponent(customComponent)}
         <View style={styles.info}>
-          <Text>
+          <Text style={styles.textInfo}>
             {componentName}
+          </Text>
+          <View style={styles.detailInfo}>
+            <Text style={styles.desc}>
+              创建了一个 View，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距
+            </Text>
+            <Text>查看源码</Text>
+          </View>
+          <Text>
+            {
+              `${customComponent}`
+            }
           </Text>
         </View>
       </View>
@@ -32,16 +41,5 @@ export default class CodeViewCard extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    paddingTop:(Platform.OS === 'ios')?20:0,
-    borderWidth:1,
-    borderColor:'#ccc'
-  },
-});
+
 
